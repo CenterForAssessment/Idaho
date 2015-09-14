@@ -36,6 +36,7 @@ Idaho_2015.config <- list(
 Idaho_SGP <- updateSGP(
 			Idaho_SGP,
 			Idaho_Data_LONG_2015,
+			sgp.config=Idaho_2015.config,
 			sgPlot.demo.report=TRUE)#,
 #			parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SUMMARY=4, GA_PLOTS=4, SG_PLOTS=1)))
 
