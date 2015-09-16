@@ -42,7 +42,6 @@ Idaho_SGP <- updateSGP(
 			sgp.projections.baseline=FALSE,
 			sgp.projections.lagged=FALSE,
 			sgp.projections.lagged.baseline=FALSE,
-			sgp.percentiles.equated=TRUE,
 			sgp.config=Idaho_2015.config,
 			sgPlot.demo.report=TRUE)#,
 #			parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SUMMARY=4, GA_PLOTS=4, SG_PLOTS=1)))
