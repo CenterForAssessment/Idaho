@@ -14,6 +14,11 @@ require(SGP)
 load("Data/Idaho_Data_LONG.Rdata")
 
 
+### Modify SGPstateData temporarily
+
+SGPstateData[["ID"]][["Student_Report_Information"]][['Grades_Reported']] <- list(MATHEMATICS=c(3,4,5,6,7,8), READING=c(3,4,5,6,7,8)) 
+
+
 ### Calculate SGPs
 
 Idaho_SGP <- abcSGP(
