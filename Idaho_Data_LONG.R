@@ -55,7 +55,7 @@ Idaho_Data_LONG[ON_TRACK_8TH_GRADE=="1", ON_TRACK_8TH_GRADE:="On Track 8th Grade
 Idaho_Data_LONG[ON_TRACK_8TH_GRADE=="0", ON_TRACK_8TH_GRADE:="On Track 8th Grade: No"]
 
 Idaho_Data_LONG[,VALID_CASE:="VALID_CASE"]
-
+Idaho_Data_LONG[,SCALE_SCORE_CSEM:=25]
 
 
 ### Create ACHIEVEMENT_LEVEL variable
