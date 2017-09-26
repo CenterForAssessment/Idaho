@@ -27,7 +27,7 @@ Idaho_SGP <- abcSGP(
 		sgp.percentiles.baseline=FALSE,
 		sgp.projections.baseline=FALSE,
 		sgp.projections.lagged.baseline=FALSE,
-		calculate.simex=list(state='ID', lambda=seq(0,2,0.5), simulation.iterations=75, simex.sample.size=5000, extrapolation='linear', save.matrices=TRUE),
+		calculate.simex=TRUE,
 		save.intermediate.results=TRUE,
 		sgp.target.scale.scores=TRUE,
 		sgPlot.demo.report=TRUE,
