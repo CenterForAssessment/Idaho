@@ -12,7 +12,10 @@ require(data.table)
 
 ### Load data
 
-Idaho_Data_LONG <- fread("Data/Base_Files/Student_Level_File.csv")
+Idaho_Data_LONG_up_to_8 <- fread("Data/Base_Files/Student_Level_File_3_to_8.csv")
+Idaho_Data_LONG_with_10 <- fread("Data/Base_Files/Student_Level_File_3_to_10.csv")
+
+Idaho_Data_LONG <- rbindlist(list(Idaho_Data_LONG_up_to_8, Idaho_Data_LONG_with_10[gradelevel==10L]), fill=TRUE)
 
 
 ### Tidy up data
