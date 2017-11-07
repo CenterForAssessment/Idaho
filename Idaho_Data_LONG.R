@@ -12,16 +12,13 @@ require(data.table)
 
 ### Load data
 
-Idaho_Data_LONG_up_to_8 <- fread("Data/Base_Files/Student_Level_File_3_to_8.csv")
-Idaho_Data_LONG_with_10 <- fread("Data/Base_Files/Student_Level_File_3_to_10.csv")
-
-Idaho_Data_LONG <- rbindlist(list(Idaho_Data_LONG_up_to_8, Idaho_Data_LONG_with_10[gradelevel==10L]), fill=TRUE)
+Idaho_Data_LONG <- fread("Data/Base_Files/Student_Level_File_3_to_10.csv")
 
 
 ### Tidy up data
 
 setnames(Idaho_Data_LONG, c("ID", "SCHOOL_NUMBER", "CONTENT_AREA", "YEAR", "GRADE", "SCALE_SCORE", "SCALE_SCORE_STANDARDIZED",
-							"ACHIEVEMENT_LEVEL_ORIGINAL", "ECONOMICALLY_DISADVANTAGED_STATUS", "SPECIAL_EDUCATION_STATUS", "ELL_STATUS", "MINORITY_STATUS", "ON_TRACK_3_YEAR", "ON_TRACK_8TH_GRADE"))
+							"ACHIEVEMENT_LEVEL_ORIGINAL", "ECONOMICALLY_DISADVANTAGED_STATUS", "SPECIAL_EDUCATION_STATUS", "ELL_STATUS", "MINORITY_STATUS"))
 
 Idaho_Data_LONG[,ID:=paste0("000000", ID)]
 Idaho_Data_LONG[,ID:=strtail(ID, 6)]
@@ -48,14 +45,6 @@ Idaho_Data_LONG[ELL_STATUS=="Y", ELL_STATUS:="ELL: Yes"]
 
 Idaho_Data_LONG[MINORITY_STATUS=="N", MINORITY_STATUS:="Minority: No"]
 Idaho_Data_LONG[MINORITY_STATUS=="Y", MINORITY_STATUS:="Minority: Yes"]
-
-Idaho_Data_LONG[,ON_TRACK_3_YEAR:=as.character(ON_TRACK_3_YEAR)]
-Idaho_Data_LONG[ON_TRACK_3_YEAR=="1", ON_TRACK_3_YEAR:="On Track 3 Year: Yes"]
-Idaho_Data_LONG[ON_TRACK_3_YEAR=="0", ON_TRACK_3_YEAR:="On Track 3 Year: No"]
-
-Idaho_Data_LONG[,ON_TRACK_8TH_GRADE:=as.character(ON_TRACK_8TH_GRADE)]
-Idaho_Data_LONG[ON_TRACK_8TH_GRADE=="1", ON_TRACK_8TH_GRADE:="On Track 8th Grade: Yes"]
-Idaho_Data_LONG[ON_TRACK_8TH_GRADE=="0", ON_TRACK_8TH_GRADE:="On Track 8th Grade: No"]
 
 Idaho_Data_LONG[,VALID_CASE:="VALID_CASE"]
 Idaho_Data_LONG[!is.na(SCALE_SCORE), SCALE_SCORE_CSEM:=25]
