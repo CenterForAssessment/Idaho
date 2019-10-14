@@ -27,13 +27,11 @@ Idaho_SGP <- abcSGP(
 		sgp.percentiles.baseline=FALSE,
 		sgp.projections.baseline=FALSE,
 		sgp.projections.lagged.baseline=FALSE,
-		calculate.simex=TRUE,
-		save.intermediate.results=TRUE,
 		sgp.target.scale.scores=TRUE,
-		sgPlot.demo.report=TRUE,
+		sgPlot.demo.report=TRUE)#,
 		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(SIMEX=2, TAUS=2, PROJECTIONS=2, LAGGED_PROJECTIONS=2, SGP_SCALE_SCORE_TARGETS=2, SUMMARY=2, GA_PLOTS=2, SG_PLOTS=1)))
 
 
 ### Save results
 
-save(Idaho_SGP, file="Data/Idaho_SGP.Rdata")
+#save(Idaho_SGP, file="Data/Idaho_SGP.Rdata")
