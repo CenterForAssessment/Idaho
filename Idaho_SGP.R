@@ -28,7 +28,8 @@ Idaho_SGP <- abcSGP(
 		sgp.projections.baseline=FALSE,
 		sgp.projections.lagged.baseline=FALSE,
 		sgp.target.scale.scores=TRUE,
-		sgPlot.demo.report=TRUE)#,
+		calculate.simex=TRUE,
+		sgPlot.demo.report=TRUE,
 		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(SIMEX=2, TAUS=2, PROJECTIONS=2, LAGGED_PROJECTIONS=2, SGP_SCALE_SCORE_TARGETS=2, SUMMARY=2, GA_PLOTS=2, SG_PLOTS=1)))
 
 
