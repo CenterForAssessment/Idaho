@@ -1,38 +1,48 @@
-###########################################################
+##########################################################################################
 ###
-### Idaho SGP Analysis
+### Script for calculating SGPs for 2018 Idaho
 ###
-###########################################################
+##########################################################################################
 
-### Load SGP Package
-
+### Load SGP package
 require(SGP)
+options(error=recover)
+#options(warn=2)
+#debug(analyzeSGP)
 
-
-### Load data
-
+### Load Data
 load("Data/Idaho_Data_LONG.Rdata")
 
+###   Read in SGP Configuration Scripts and Combine
+source("SGP_CONFIG/2018/ELA.R")
+source("SGP_CONFIG/2018/MATHEMATICS.R")
+
+ID_Config_2018 <- c(
+  ELA_2018.config,
+  MATHEMATICS_2018.config
+)
 
 ### Modify SGPstateData temporarily
+SGPstateData[["ID"]][["Growth"]][["System_Type"]] <- "Cohort Referenced"
 
-SGPstateData[["ID"]][["Student_Report_Information"]][['Grades_Reported']] <- list(MATHEMATICS=c(3,4,5,6,7,8), READING=c(3,4,5,6,7,8)) 
-
-
-### Calculate SGPs
-
+### Run analyses
 Idaho_SGP <- abcSGP(
 		Idaho_Data_LONG,
-		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "summarizeSGP", "visualizeSGP", "outputSGP"),
+		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
+		sgp.percentiles=TRUE,
+		sgp.projections=TRUE,
+		sgp.projections.lagged=TRUE,
 		sgp.percentiles.baseline=FALSE,
 		sgp.projections.baseline=FALSE,
 		sgp.projections.lagged.baseline=FALSE,
+		get.cohort.data.info=TRUE,
 		sgp.target.scale.scores=TRUE,
-		calculate.simex=TRUE,
+		plot.types=c("growthAchievementPlot", "studentGrowthPlot"),
 		sgPlot.demo.report=TRUE,
-		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(SIMEX=2, TAUS=2, PROJECTIONS=2, LAGGED_PROJECTIONS=2, SGP_SCALE_SCORE_TARGETS=2, SUMMARY=2, GA_PLOTS=2, SG_PLOTS=1)))
+		sgp.config=ID_Config_2018,
+		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4, GA_PLOTS=1, SG_PLOTS=1)))
 
 
 ### Save results
 
-#save(Idaho_SGP, file="Data/Idaho_SGP.Rdata")
+save(Idaho_SGP, file="Data/Idaho_SGP.Rdata")
