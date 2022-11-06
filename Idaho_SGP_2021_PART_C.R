@@ -74,9 +74,9 @@ SGPstateData[["ID"]][["SGP_Configuration"]][["max.forward.projection.sequence"]]
     MATHEMATICS_GRADE_10=3)
 
 ### Run analysis
-
 Idaho_SGP <- abcSGP(
         Idaho_SGP,
+	years="2021",
         steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
         sgp.config=ID_CONFIG,
         sgp.percentiles=FALSE,
@@ -85,7 +85,7 @@ Idaho_SGP <- abcSGP(
         sgp.percentiles.baseline=FALSE,
         sgp.projections.baseline=FALSE,
         sgp.projections.lagged.baseline=TRUE,
-        sgp.target.scale.scores=FALSE,
+        sgp.target.scale.scores=TRUE,
         parallel.config=parallel.config
 )
 

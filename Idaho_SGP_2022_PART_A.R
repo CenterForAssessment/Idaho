@@ -41,7 +41,7 @@ Idaho_SGP <- updateSGP(
         sgp.percentiles = TRUE,
         sgp.projections = FALSE,
         sgp.projections.lagged = FALSE,
-        sgp.percentiles.baseline = TRUE,  #  Consecutive year SGPs for 2021 comparisons
+        sgp.percentiles.baseline = TRUE,
         sgp.projections.baseline = FALSE, # 
         sgp.projections.lagged.baseline = FALSE,
         save.intermediate.results = FALSE,

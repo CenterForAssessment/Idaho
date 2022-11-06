@@ -32,7 +32,7 @@ Idaho_SGP <- abcSGP(
         steps=c("prepareSGP", "analyzeSGP", "combineSGP"),
         sgp.config=ID_2022.config,
         sgp.percentiles=FALSE,
-        sgp.projections=FALSE,
+        sgp.projections=TRUE,
         sgp.projections.lagged=FALSE,
         sgp.percentiles.baseline=FALSE,
         sgp.projections.baseline=TRUE,
