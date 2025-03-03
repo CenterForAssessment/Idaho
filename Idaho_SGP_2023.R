@@ -9,7 +9,7 @@
 require(SGP)
 
 ###   Load data
-load("Data/Idaho_SGP.Rdata")
+load("Data/Archive/2022/Idaho_SGP.Rdata")
 load("Data/Idaho_IRI_Data_LONG_2022_2023.Rdata")
 
 ###   Read in SGP Configuration Scripts and Combine
@@ -39,6 +39,8 @@ Idaho_SGP <- updateSGP(
         sgp.projections.baseline = FALSE, # 
         sgp.projections.lagged.baseline = FALSE,
         save.intermediate.results = FALSE,
+        outputSGP.output.type = c("LONG_Data", "LONG_FINAL_YEAR_Data"),
+        SGPt=TRUE,
         parallel.config = parallel.config
 )
 

@@ -39,8 +39,10 @@ Idaho_SGP <- updateSGP(
         sgp.projections.baseline = FALSE, # 
         sgp.projections.lagged.baseline = FALSE,
         save.intermediate.results = FALSE,
+        outputSGP.output.type = c("LONG_Data", "LONG_FINAL_YEAR_Data"),
+        SGPt=TRUE,
         parallel.config = parallel.config
 )
 
 ###   Save results
-#save(Idaho_SGP, file="Data/Idaho_SGP.Rdata")
+save(Idaho_SGP, file="Data/Idaho_SGP.Rdata")
